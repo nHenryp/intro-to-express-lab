@@ -1,6 +1,15 @@
+//imports
 const express = require('express')
+const morgan = require('morgan')
 
+
+//Constance
 const app = express()
+// dynamically change port
+//const PORT = 3000
+
+//middleware
+//app.use(morgan('dev'))
 
 
 /*
@@ -14,6 +23,12 @@ app.get('/roll/:number', (req, res) => {
     if (!Number.isInteger(parseInt(req.params.number))) {
         return res.send('you must specify a number')
     }
+    //const number =  req.paams.number
+    //if (isNaN(number)){
+   // return res.send('You must specify a number'.)
+   //} else {
+   //return res.send(string(Math.floor(Math.random() * number)))
+   //}
 
     const maxNumber = parseInt(number, 10)
     const rolledNumber = Math.floor(Math.random() * (maxNumber + 1))
@@ -23,7 +38,7 @@ app.get('/roll/:number', (req, res) => {
 
 })
 */
-
+/*
 const collectibles = [
     { name: 'shiny ball', price: 5.95 },
     { name: 'autographed picture of a dog', price: 10 },
@@ -31,24 +46,31 @@ const collectibles = [
   ];
 
 
-app.get('/collectibles/:indexNumber', (req, res) => {
-    const [indexNumber] = req.params.indexNumber
-    if (indexNumber)
-        return res.send(`<h1>So, you want ${req.params.name}? for ${req.params.price}, it can be yours</h1>`)
+app.get('/collectibles/:index', (req, res) => {
+    const index = req.params.index
+    //const item = collectibles[index] make a varible 
+    if(!collectibles[index]) {
+        return res.send('This iten is not yet in stock, Check back soon')
+    }
+    return res.send(`So, you want the ${item.name}? For ${item.price}, it can be yours!`)
+   
+   
+   // const [indexNumber] = req.params.indexNumber
+   // if (indexNumber)
+    //    return res.send(`<h1>So, you want ${req.params.name}? for ${req.params.price}, it can be yours</h1>`)
 
     //res.send('<h1>INDEX</h1>')
-
-
-   
-})
+    })
 
 
 
-
+*/
 
 //app.get('/shoes', (req, res) => {
 
 //})
+
+
 
 
 
